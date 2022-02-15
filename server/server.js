@@ -9,8 +9,8 @@ app.use(cors())
 
 
 
-app.get('/',(req,res) => {
-    res.sendFile(path.join(__dirname,'/Client/index.html'))
+app.get('/',function(req,res) {
+    res.sendFile(path.join(__dirname,'./Client/index.html'))
 })
 
 

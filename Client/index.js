@@ -25,7 +25,7 @@ const game = document.getElementById('game');
 const Instructions = document.getElementById('directions');
 const x = document.createElement('video')
 
-setInterval(updateCountdown, 1000);
+const countDownInterval =setInterval(updateCountdown, 1000);
 
 function updateCountdown() {
     const min = Math.floor(time / 60);
@@ -38,12 +38,14 @@ function updateCountdown() {
         timerEl.innerHTML = `${min} ${sec}`;
         time--;
     } else {
+        clearInterval(countDownInterval);
         timerEl.innerHTML = "Time's up ";
         game.style.display = "none";
         Instructions.style.display = "none";
         x.setAttribute('autoplay', 'autoplay');
         // x.setAttribute('controls','controls');
         x.setAttribute("src", "/Vision.mp4");
+        x.setAttribute("muted","false")
         x.setAttribute("width", "100%");
         document.body.appendChild(x);
 
@@ -66,10 +68,10 @@ for (let i = 0; i < getty.length; i++) {
         counter.innerHTML = integer;
         setTimeout(()=>{
             e.target.style.display = "none";
-        },1200);
+        },100);
         if (integer === 50) {
             counter.remove();
-            message.innerHTML = "You,ve won";
+            message.innerHTML = "YOU'VE WON";
         }
 
     });

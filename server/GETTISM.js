@@ -13,6 +13,12 @@ app.use(cors())
 app.get('/',function(req,res) {
     res.sendFile(path.join(__dirname,'../Client/index.html'))
 })
+app.get('/index.js',function(req,res) {
+    res.sendFile(path.join(__dirname,'../Client/index.js'))
+})
+app.get('/styles',function(req,res) {
+    res.sendFile(path.join(__dirname,'../Client/styles.css'))
+})
 
 
 
